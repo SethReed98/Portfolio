@@ -1,0 +1,140 @@
+:root {
+	/* Light mode colors */
+	--color-bg: #ffffff;
+	--color-surface: #f8f9fa;
+	--color-text: #212529;
+	--color-text-secondary: #6c757d;
+	--color-primary: #0066cc;
+	--color-primary-hover: #0052a3;
+	--color-border: #dee2e6;
+	--color-shadow: rgba(0, 0, 0, 0.1);
+	--color-card-bg: #ffffff;
+
+	/* Spacing */
+	--spacing-xs: 0.5rem;
+	--spacing-sm: 1rem;
+	--spacing-md: 1.5rem;
+	--spacing-lg: 2rem;
+	--spacing-xl: 3rem;
+	--spacing-2xl: 4rem;
+
+	/* Typography */
+	--font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+	--font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
+
+	/* Transitions */
+	--transition-fast: 150ms ease;
+	--transition-base: 250ms ease;
+}
+
+[data-theme='dark'] {
+	--color-bg: #0d1117;
+	--color-surface: #161b22;
+	--color-text: #e6edf3;
+	--color-text-secondary: #8b949e;
+	--color-primary: #58a6ff;
+	--color-primary-hover: #79b8ff;
+	--color-border: #30363d;
+	--color-shadow: rgba(0, 0, 0, 0.3);
+	--color-card-bg: #161b22;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: var(--font-sans);
+	background-color: var(--color-bg);
+	color: var(--color-text);
+	line-height: 1.6;
+	transition: background-color var(--transition-base), color var(--transition-base);
+	min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.2;
+	font-weight: 700;
+}
+
+h1 {
+	font-size: 2.5rem;
+}
+
+h2 {
+	font-size: 2rem;
+	margin-bottom: var(--spacing-md);
+}
+
+h3 {
+	font-size: 1.5rem;
+}
+
+p {
+	margin-bottom: var(--spacing-sm);
+}
+
+a {
+	color: var(--color-primary);
+	text-decoration: none;
+	transition: color var(--transition-fast);
+}
+
+a:hover {
+	color: var(--color-primary-hover);
+}
+
+button {
+	font-family: inherit;
+	cursor: pointer;
+	border: none;
+	background: none;
+	font-size: 1rem;
+	/* Mobile optimizations */
+	-webkit-tap-highlight-color: transparent;
+	touch-action: manipulation;
+	min-height: 44px; /* Better touch targets on mobile */
+}
+
+code {
+	font-family: var(--font-mono);
+	font-size: 0.9em;
+	background-color: var(--color-surface);
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+}
+
+/* Mobile-specific optimizations */
+@media (hover: none) and (pointer: coarse) {
+	/* Improve touch targets on mobile */
+	a:not(.project-link):not(.icon-link):not(.nav-link) {
+		min-height: 44px;
+		display: inline-flex;
+		align-items: center;
+	}
+
+	/* Disable hover effects on touch devices */
+	a:hover {
+		transform: none;
+	}
+}
+
+@media (max-width: 768px) {
+	h1 {
+		font-size: 2rem;
+	}
+
+	h2 {
+		font-size: 1.75rem;
+	}
+
+	h3 {
+		font-size: 1.25rem;
+	}
+}

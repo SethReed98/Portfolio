@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherNow Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="container">
+                <h1 class="logo">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+                    </svg>
+                    WeatherNow
+                </h1>
+                <div class="search-box">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search for a city..."
+                        autocomplete="off"
+                    />
+                    <button id="searchBtn" class="btn-search">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="container">
+                <div id="loading" class="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Loading weather data...</p>
+                </div>
+
+                <div id="error" class="error" style="display: none;">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <h2>Oops!</h2>
+                    <p id="errorMessage"></p>
+                    <button id="retryBtn" class="btn-retry">Try Again</button>
+                </div>
+
+                <div id="weatherData" class="weather-data" style="display: none;">
+                    <div class="current-weather">
+                        <div class="location-info">
+                            <h2 id="cityName"></h2>
+                            <p id="currentDate"></p>
+                        </div>
+                        <div class="temperature-display">
+                            <div class="temp-icon" id="weatherIcon"></div>
+                            <div class="temp-info">
+                                <div class="temp-value" id="temperature"></div>
+                                <div class="temp-description" id="weatherDesc"></div>
+                            </div>
+                        </div>
+                        <div class="weather-details">
+                            <div class="detail-card">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                                </svg>
+                                <div>
+                                    <span class="detail-label">Feels Like</span>
+                                    <span class="detail-value" id="feelsLike"></span>
+                                </div>
+                            </div>
+                            <div class="detail-card">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                                </svg>
+                                <div>
+                                    <span class="detail-label">Humidity</span>
+                                    <span class="detail-value" id="humidity"></span>
+                                </div>
+                            </div>
+                            <div class="detail-card">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"></path>
+                                </svg>
+                                <div>
+                                    <span class="detail-label">Wind Speed</span>
+                                    <span class="detail-value" id="windSpeed"></span>
+                                </div>
+                            </div>
+                            <div class="detail-card">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                                </svg>
+                                <div>
+                                    <span class="detail-label">Pressure</span>
+                                    <span class="detail-value" id="pressure"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="forecast-section">
+                        <h3>5-Day Forecast</h3>
+                        <div class="forecast-grid" id="forecast"></div>
+                    </div>
+                </div>
+
+                <div id="welcome" class="welcome">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+                    </svg>
+                    <h2>Welcome to WeatherNow</h2>
+                    <p>Search for a city to see current weather and forecast</p>
+                    <div class="demo-mode">
+                        <p class="note">📌 Demo Mode: Using sample weather data</p>
+                        <p class="note-small">Try searching for: London, Tokyo, New York, Paris, Sydney</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
