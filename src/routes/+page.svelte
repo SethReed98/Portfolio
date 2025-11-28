@@ -4,6 +4,7 @@
 	import About from '$lib/About.svelte';
 	import Skills from '$lib/Skills.svelte';
 	import Projects from '$lib/Projects.svelte';
+	import Contact from '$lib/Contact.svelte';
 	import Footer from '$lib/Footer.svelte';
 
 	let theme = $state('light');
@@ -28,6 +29,7 @@
 		<About />
 		<Skills />
 		<Projects />
+		<Contact />
 	</main>
 	<Footer />
 </div>

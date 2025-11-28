@@ -45,8 +45,8 @@
 		{/if}
 
 		<div class="projects-grid">
-			{#each projects as project}
-				<article class="project-card">
+			{#each projects as project, i}
+				<article class="project-card hover-lift fade-in fade-in-delay-{i + 1}">
 					<div class="project-content">
 						<h3 class="project-title">{project.title}</h3>
 						<p class="project-description">{project.description}</p>

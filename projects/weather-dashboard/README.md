@@ -2,6 +2,22 @@
 
 Weather app with current conditions and 5-day forecast. Originally wanted to use a real weather API but ran into rate limiting on the free tier, so it's running in demo mode for now.
 
+## The Problem
+
+Need to demonstrate API integration, async/await patterns, and data visualization skills in a portfolio project. Most weather apps use the same free APIs with severe rate limits (60 calls/hour), making them impractical for portfolio demos that get multiple visitors.
+
+## My Solution
+
+Built a weather dashboard with a switchable data source - designed to integrate with OpenWeatherMap API but running in demo mode for portfolio purposes. Implemented proper async/await error handling, loading states, and responsive data visualization. The architecture allows easy switching between demo and live API modes.
+
+## Impact
+
+- Clean API abstraction layer - swap demo/live data in one function
+- Responsive grid layout that works seamlessly on mobile (stacks vertically)
+- Proper loading states and error handling for real-world API scenarios
+- Demonstrates understanding of API rate limits and practical solutions
+- Touch-optimized inputs (16px font-size prevents iOS zoom)
+
 ## Features
 
 - Current weather conditions (temperature, humidity, wind speed)

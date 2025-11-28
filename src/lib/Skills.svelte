@@ -1,27 +1,43 @@
 <script lang="ts">
 	const skills = [
 		{
-			category: 'Frontend',
+			category: 'Frontend Development',
 			items: [
-				{ name: 'JavaScript', icon: '🟨' },
-				{ name: 'TypeScript', icon: '🔷' },
-				{ name: 'React', icon: '⚛️' }
+				{ name: 'JavaScript (ES6+)', icon: '🟨', level: 'Advanced' },
+				{ name: 'TypeScript', icon: '🔷', level: 'Intermediate' },
+				{ name: 'React', icon: '⚛️', level: 'Intermediate' },
+				{ name: 'Svelte/SvelteKit', icon: '🔥', level: 'Intermediate' },
+				{ name: 'HTML5 & CSS3', icon: '🎨', level: 'Advanced' }
 			]
 		},
 		{
-			category: 'Backend',
+			category: 'Backend & Database',
 			items: [
-				{ name: 'Python', icon: '🐍' },
-				{ name: 'PHP', icon: '🐘' },
-				{ name: 'SQL', icon: '🗄️' }
+				{ name: 'Python', icon: '🐍', level: 'Intermediate' },
+				{ name: 'PHP', icon: '🐘', level: 'Intermediate' },
+				{ name: 'SQL (PostgreSQL/MySQL)', icon: '🗄️', level: 'Intermediate' },
+				{ name: 'Node.js', icon: '💚', level: 'Intermediate' },
+				{ name: 'RESTful APIs', icon: '🔌', level: 'Intermediate' }
 			]
 		},
 		{
-			category: 'Mobile Development',
+			category: 'Mobile & Modern Web',
 			items: [
-				{ name: 'Responsive Design', icon: '📱' },
-				{ name: 'Touch Events', icon: '👆' },
-				{ name: 'Mobile-First CSS', icon: '🎨' }
+				{ name: 'Responsive Design', icon: '📱', level: 'Advanced' },
+				{ name: 'Touch Events & Gestures', icon: '👆', level: 'Advanced' },
+				{ name: 'Progressive Web Apps', icon: '⚡', level: 'Intermediate' },
+				{ name: 'Web Audio API', icon: '🔊', level: 'Intermediate' },
+				{ name: 'Performance Optimization', icon: '🚀', level: 'Intermediate' }
+			]
+		},
+		{
+			category: 'Tools & Workflow',
+			items: [
+				{ name: 'Git & GitHub', icon: '📦', level: 'Advanced' },
+				{ name: 'VS Code', icon: '💻', level: 'Advanced' },
+				{ name: 'Chrome DevTools', icon: '🔍', level: 'Advanced' },
+				{ name: 'NPM/Package Managers', icon: '📦', level: 'Intermediate' },
+				{ name: 'GitHub Actions/CI-CD', icon: '⚙️', level: 'Beginner' }
 			]
 		}
 	];
@@ -38,7 +54,10 @@
 						{#each category.items as skill}
 							<div class="skill-card">
 								<span class="skill-icon">{skill.icon}</span>
-								<span class="skill-name">{skill.name}</span>
+								<div class="skill-info">
+									<span class="skill-name">{skill.name}</span>
+									<span class="skill-level {skill.level.toLowerCase()}">{skill.level}</span>
+								</div>
 							</div>
 						{/each}
 					</div>
@@ -47,15 +66,18 @@
 		</div>
 
 		<div class="additional-skills">
-			<h3>Other Technologies</h3>
+			<h3>Additional Experience</h3>
 			<div class="tags">
-				<span class="tag">Git</span>
-				<span class="tag">REST APIs</span>
-				<span class="tag">Databases</span>
-				<span class="tag">PWA</span>
-				<span class="tag">Web Audio API</span>
-				<span class="tag">LocalStorage</span>
-				<span class="tag">Agile</span>
+				<span class="tag">Vitest/Jest Testing</span>
+				<span class="tag">Vite Build Tool</span>
+				<span class="tag">Webpack</span>
+				<span class="tag">Sass/SCSS</span>
+				<span class="tag">Tailwind CSS</span>
+				<span class="tag">Figma</span>
+				<span class="tag">Postman/API Testing</span>
+				<span class="tag">Agile/Scrum</span>
+				<span class="tag">Accessibility (WCAG)</span>
+				<span class="tag">SEO Optimization</span>
 			</div>
 		</div>
 	</div>
@@ -125,11 +147,58 @@
 
 	.skill-icon {
 		font-size: 1.5rem;
+		flex-shrink: 0;
+	}
+
+	.skill-info {
+		flex: 1;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: var(--spacing-sm);
 	}
 
 	.skill-name {
 		font-weight: 600;
 		color: var(--color-text);
+	}
+
+	.skill-level {
+		font-size: 0.75rem;
+		padding: 0.25rem 0.5rem;
+		border-radius: 12px;
+		font-weight: 500;
+		white-space: nowrap;
+	}
+
+	.skill-level.advanced {
+		background-color: #d4edda;
+		color: #155724;
+	}
+
+	.skill-level.intermediate {
+		background-color: #d1ecf1;
+		color: #0c5460;
+	}
+
+	.skill-level.beginner {
+		background-color: #fff3cd;
+		color: #856404;
+	}
+
+	:global([data-theme='dark']) .skill-level.advanced {
+		background-color: #1e4620;
+		color: #9fdf9f;
+	}
+
+	:global([data-theme='dark']) .skill-level.intermediate {
+		background-color: #1a4d5c;
+		color: #9fdfee;
+	}
+
+	:global([data-theme='dark']) .skill-level.beginner {
+		background-color: #5c4a1a;
+		color: #ffe69f;
 	}
 
 	.additional-skills {
