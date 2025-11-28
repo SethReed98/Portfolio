@@ -43,18 +43,19 @@ class DevNotes {
         this.exportBtn.addEventListener('click', () => this.exportNote());
         this.deleteBtn.addEventListener('click', () => this.deleteCurrentNote());
 
-        // Toggle preview on mobile
+        // mobile preview toggle
         if (this.togglePreviewBtn) {
             this.togglePreviewBtn.addEventListener('click', () => this.togglePreview());
         }
     }
 
     createNewNote() {
+        // TODO: maybe use a modal instead of prompt? looks kinda dated
         const title = prompt('Enter note title:', 'Untitled Note');
         if (!title) return;
 
         const note = {
-            id: Date.now().toString(),
+            id: Date.now().toString(), // simple but works
             title: title,
             content: '',
             createdAt: new Date().toISOString(),

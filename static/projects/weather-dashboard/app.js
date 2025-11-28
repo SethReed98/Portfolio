@@ -1,6 +1,6 @@
 class WeatherDashboard {
     constructor() {
-        // Demo mode data
+        // hardcoded data for demo - would normally fetch from API
         this.demoData = {
             'london': { city: 'London', country: 'GB', temp: 15, feels: 13, desc: 'Cloudy', humidity: 75, wind: 5.2, pressure: 1013, icon: '☁️' },
             'tokyo': { city: 'Tokyo', country: 'JP', temp: 22, feels: 21, desc: 'Partly Cloudy', humidity: 65, wind: 3.8, pressure: 1015, icon: '⛅' },
@@ -51,7 +51,7 @@ class WeatherDashboard {
 
         this.showLoading();
 
-        // Simulate API delay
+        // fake loading delay so it feels like an API call
         await this.sleep(1000);
 
         const weatherData = this.getDemoData(city);

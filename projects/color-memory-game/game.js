@@ -36,15 +36,14 @@ class ColorMemoryGame {
                 }
             });
 
-            // Touch events for mobile - prevent default to avoid double-firing
+            // mobile touch support - took a while to get this right
+            // preventDefault is key or clicks fire twice
             button.addEventListener('touchstart', (e) => {
                 e.preventDefault();
                 if (this.isPlaying && !this.isShowingSequence) {
                     const color = e.target.dataset.color;
-                    // Add visual feedback
                     e.target.classList.add('touch-active');
-                    // Vibrate on mobile if supported
-                    this.vibrate(50);
+                    this.vibrate(50); // haptic feedback feels good
                 }
             });
 

@@ -1,90 +1,42 @@
-# WeatherNow Dashboard
+# Weather Dashboard
 
-A modern, responsive weather dashboard that displays current weather conditions and a 5-day forecast. Built to demonstrate API integration skills and modern web design.
+Weather app with current conditions and 5-day forecast. Originally wanted to use a real weather API but ran into rate limiting on the free tier, so it's running in demo mode for now.
 
-## Features
+## How it works
 
-- **Current Weather Display** - Temperature, conditions, humidity, wind speed, and pressure
-- **5-Day Forecast** - Extended weather predictions
-- **City Search** - Look up weather for any city
-- **Responsive Design** - Works seamlessly on desktop and mobile
-- **Demo Mode** - Works out-of-the-box with sample data for popular cities
-- **Modern UI** - Clean, gradient design with smooth animations
+Search for a city and it shows current weather plus forecast. Currently works with London, Tokyo, New York, Paris, and Sydney (hardcoded data).
 
-## Demo Cities
+Mobile version stacks everything vertically instead of the grid layout. Works pretty well on my phone.
 
-The application currently runs in demo mode with data for:
-- London
-- Tokyo
-- New York
-- Paris
-- Sydney
+## The API situation
 
-## Technologies Used
+Built it to work with OpenWeatherMap API but their free tier is 60 calls/hour which isn't enough for a portfolio demo site. For now it's using demo data.
 
-- **HTML5** - Semantic markup
-- **CSS3** - Modern styling, gradients, grid layout, animations
-- **JavaScript (ES6+)** - Async/await, fetch API (demo mode uses local data)
-- **Object-Oriented Design** - Clean, maintainable code structure
-
-## API Integration (Optional Enhancement)
-
-This project is designed to integrate with the OpenWeatherMap API. To use real weather data:
-
-1. Get a free API key from [OpenWeatherMap](https://openweathermap.org/api)
-2. Update the `app.js` file to use the fetch API:
-
+If you want to hook up the real API:
 ```javascript
-async fetchWeather(city) {
-    const API_KEY = 'your_api_key_here';
-    const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
-    );
-    return await response.json();
-}
+// in app.js, replace getDemoData with actual fetch
+const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=YOUR_KEY&units=metric`);
 ```
 
-## Features Demonstrated
+## Tech
 
-- **Async Operations** - Simulated API calls with loading states
-- **Error Handling** - User-friendly error messages
-- **State Management** - Clean view state transitions
-- **Responsive Layout** - Mobile-first CSS Grid
-- **Modern JavaScript** - ES6+ classes, async/await, arrow functions
-- **User Experience** - Loading indicators, smooth transitions
+- Vanilla JS with async/await
+- CSS Grid for the layout
+- Some gradients that I'm pretty happy with
 
-## Running the App
+## Mobile stuff
 
-Simply open `index.html` in any modern web browser. No build process required!
+Font size on the search input is 16px to avoid iOS zoom (learned that from the notes app). Touch targets are all 44px minimum.
 
-## Code Highlights
+## Open index.html
 
-- Object-oriented architecture with `WeatherDashboard` class
-- Promise-based async operations
-- Dynamic DOM manipulation
-- CSS Grid for responsive layout
-- CSS custom properties for theming
-- Smooth state transitions
+Works right in the browser, no build.
 
-## Future Enhancements
+## TODO
 
-- Live API integration with OpenWeatherMap
-- Geolocation support for automatic location detection
-- Hourly forecast
-- Weather maps and radar
-- Historical weather data
-- Save favorite locations
-- Unit conversion (Celsius/Fahrenheit)
-- Dark mode toggle
+- Actually get a paid API key or find a better free one
+- Add geolocation to auto-detect city
+- Maybe hourly forecast too
+- Dark mode would be consistent with the main site
 
-## Browser Support
-
-Works in all modern browsers (Chrome, Firefox, Safari, Edge)
-
-## Screenshots
-
-[Add screenshots here]
-
-## Live Demo
-
-[Try the app](#) <!-- Update with your deployed URL -->
+The design is pretty clean though, happy with how it turned out.

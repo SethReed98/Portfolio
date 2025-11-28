@@ -1,90 +1,59 @@
-# WeatherNow Dashboard
+# Weather Dashboard
 
-A modern, responsive weather dashboard that displays current weather conditions and a 5-day forecast. Built to demonstrate API integration skills and modern web design.
+Weather app with current conditions and 5-day forecast. Originally wanted to use a real weather API but ran into rate limiting on the free tier, so it's running in demo mode for now.
 
 ## Features
 
-- **Current Weather Display** - Temperature, conditions, humidity, wind speed, and pressure
-- **5-Day Forecast** - Extended weather predictions
-- **City Search** - Look up weather for any city
-- **Responsive Design** - Works seamlessly on desktop and mobile
-- **Demo Mode** - Works out-of-the-box with sample data for popular cities
-- **Modern UI** - Clean, gradient design with smooth animations
+- Current weather conditions (temperature, humidity, wind speed)
+- 5-day weather forecast
+- Search functionality for major cities
+- Responsive mobile layout
+- Weather icons and visual indicators
 
-## Demo Cities
+## Demo Mode
 
-The application currently runs in demo mode with data for:
+Currently running with hardcoded demo data for the following cities:
 - London
 - Tokyo
 - New York
 - Paris
 - Sydney
 
-## Technologies Used
+## API Integration
 
-- **HTML5** - Semantic markup
-- **CSS3** - Modern styling, gradients, grid layout, animations
-- **JavaScript (ES6+)** - Async/await, fetch API (demo mode uses local data)
-- **Object-Oriented Design** - Clean, maintainable code structure
+This application is designed to integrate with the OpenWeatherMap API. To connect to the live API:
 
-## API Integration (Optional Enhancement)
-
-This project is designed to integrate with the OpenWeatherMap API. To use real weather data:
-
-1. Get a free API key from [OpenWeatherMap](https://openweathermap.org/api)
-2. Update the `app.js` file to use the fetch API:
+1. Sign up for an API key at [OpenWeatherMap](https://openweathermap.org/api)
+2. In `app.js`, replace the `getDemoData()` call with:
 
 ```javascript
-async fetchWeather(city) {
-    const API_KEY = 'your_api_key_here';
-    const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
-    );
-    return await response.json();
-}
+const response = await fetch(
+  `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=YOUR_API_KEY&units=metric`
+);
+const data = await response.json();
 ```
 
-## Features Demonstrated
+**Note:** The free tier has a limit of 60 calls/hour, which may not be sufficient for high-traffic portfolio demos.
 
-- **Async Operations** - Simulated API calls with loading states
-- **Error Handling** - User-friendly error messages
-- **State Management** - Clean view state transitions
-- **Responsive Layout** - Mobile-first CSS Grid
-- **Modern JavaScript** - ES6+ classes, async/await, arrow functions
-- **User Experience** - Loading indicators, smooth transitions
+## Technologies Used
 
-## Running the App
+- **JavaScript:** ES6+ with async/await
+- **CSS Grid:** Responsive layout system
+- **CSS Gradients:** Custom weather-themed styling
 
-Simply open `index.html` in any modern web browser. No build process required!
+## Mobile stuff
 
-## Code Highlights
+Font size on the search input is 16px to avoid iOS zoom (learned that from the notes app). Touch targets are all 44px minimum.
 
-- Object-oriented architecture with `WeatherDashboard` class
-- Promise-based async operations
-- Dynamic DOM manipulation
-- CSS Grid for responsive layout
-- CSS custom properties for theming
-- Smooth state transitions
+## Running the Application
 
-## Future Enhancements
+No build process required. Open `index.html` in any modern web browser.
 
-- Live API integration with OpenWeatherMap
-- Geolocation support for automatic location detection
-- Hourly forecast
-- Weather maps and radar
-- Historical weather data
-- Save favorite locations
-- Unit conversion (Celsius/Fahrenheit)
-- Dark mode toggle
+## TODO
 
-## Browser Support
+- Actually get a paid API key or find a better free one
+- Add geolocation to auto-detect city
+- Maybe hourly forecast too
+- Dark mode would be consistent with the main site
 
-Works in all modern browsers (Chrome, Firefox, Safari, Edge)
-
-## Screenshots
-
-[Add screenshots here]
-
-## Live Demo
-
-[Try the app](#) <!-- Update with your deployed URL -->
+The design is pretty clean though, happy with how it turned out.

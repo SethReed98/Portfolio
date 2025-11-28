@@ -2,7 +2,7 @@
 	const projects = [
 		{
 			title: 'Color Memory Game',
-			description: 'An interactive browser-based memory game inspired by Simon Says. Fully optimized for mobile with touch events, haptic feedback, and responsive design. Features progressive difficulty, sound effects using Web Audio API, and high score tracking with localStorage. Works seamlessly on all devices.',
+			description: 'Simon Says style memory game. Got touch events and haptic feedback working for mobile - took some trial and error with preventDefault. Uses Web Audio API for the beep sounds and tracks your high score.',
 			tags: ['JavaScript', 'Mobile-First', 'Web Audio API', 'Touch Events'],
 			github: 'https://github.com/SethReed98/Portfolio/tree/main/projects/color-memory-game',
 			demo: './projects/color-memory-game/index.html',
@@ -10,7 +10,7 @@
 		},
 		{
 			title: 'DevNotes - Markdown Editor',
-			description: 'A lightweight, browser-based markdown editor with live preview. Mobile-optimized with touch-friendly interface and adaptive layout. Create, edit, and manage multiple notes with real-time markdown rendering. Features local storage persistence, markdown export, and works perfectly on mobile devices.',
+			description: 'Quick markdown editor for taking notes offline. Type on the left, preview on the right. Built my own parser instead of using a library. Saves to localStorage and lets you export to .md files. Mobile version switches to a toggle view.',
 			tags: ['JavaScript', 'LocalStorage API', 'Responsive', 'PWA-Ready'],
 			github: 'https://github.com/SethReed98/Portfolio/tree/main/projects/devnotes',
 			demo: './projects/devnotes/index.html',
@@ -18,7 +18,7 @@
 		},
 		{
 			title: 'WeatherNow Dashboard',
-			description: 'A modern weather dashboard displaying current conditions and 5-day forecasts. Fully responsive with mobile-first design and touch-optimized controls. Built to demonstrate API integration skills and cross-platform compatibility. Currently runs in demo mode with sample data for popular cities worldwide.',
+			description: 'Weather dashboard with current conditions and 5-day forecast. Originally built for OpenWeatherMap API but their free tier had rate limits, so it runs in demo mode with hardcoded data for now. Works well on mobile though.',
 			tags: ['JavaScript', 'API Integration', 'Mobile-First', 'Responsive'],
 			github: 'https://github.com/SethReed98/Portfolio/tree/main/projects/weather-dashboard',
 			demo: './projects/weather-dashboard/index.html',

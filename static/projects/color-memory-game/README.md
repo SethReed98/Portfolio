@@ -1,43 +1,35 @@
 # Color Memory Game
 
-A browser-based memory game inspired by Simon Says. Test your memory by repeating increasingly long sequences of colors!
+Simon Says style game. Repeat the color patterns, see how far you can get.
 
-## Features
+## How it works
 
-- Progressive difficulty - each level adds one more color to remember
-- High score tracking with localStorage persistence
-- Smooth animations and visual feedback
-- Sound effects using Web Audio API
-- Fully responsive design
-- Pure vanilla JavaScript - no frameworks needed
+Watch the colors light up in sequence, then tap them in the same order. Each round adds another color. Pretty simple concept but gets tricky fast.
 
-## How to Play
+Tracks your high score in localStorage so it remembers even if you close the tab.
 
-1. Click "Start Game" to begin
-2. Watch the color sequence carefully
-3. Repeat the sequence by clicking the colored buttons in order
-4. Each level adds one more color to the sequence
-5. Try to beat your high score!
+## The mobile stuff
 
-## Technologies Used
+Got touch events working with some trial and error. Had to use `preventDefault()` to stop the click events from firing twice on mobile. Also added vibration feedback which feels pretty nice on phones.
 
-- **HTML5** - Game structure
-- **CSS3** - Styling, animations, and gradients
-- **JavaScript (ES6+)** - Game logic, Web Audio API for sounds
-- **LocalStorage API** - High score persistence
+Tested on my iPhone and a friend's Android - works on both.
 
-## Running the Game
+## Tech
 
-Simply open `index.html` in any modern web browser. No build process or server required!
+Vanilla JS, no frameworks. Used the Web Audio API for the beep sounds - each color has a different frequency. CSS Grid for the layout.
 
-## Code Highlights
+## Just open index.html
 
-- Object-oriented design with a `ColorMemoryGame` class
-- Async/await for sequence timing
-- Web Audio API for dynamic sound generation
-- CSS Grid for responsive layout
-- LocalStorage for data persistence
+No build step, just works in the browser.
 
-## Live Demo
+## Things I learned
 
-[Play the game here](#) <!-- Update with your deployed URL -->
+- Web Audio API is weird but powerful once you figure it out
+- Touch events need preventDefault or you get double-firing
+- CSS Grid made the responsive part way easier than I thought
+- localStorage is super handy for simple stuff like high scores
+
+## TODO
+- Maybe add difficulty levels?
+- Sound on/off toggle would be nice
+- Could track stats beyond just high score

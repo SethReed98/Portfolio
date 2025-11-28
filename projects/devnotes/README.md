@@ -1,72 +1,46 @@
-# DevNotes - Markdown Note Editor
+# DevNotes
 
-A lightweight, browser-based markdown editor with live preview. Perfect for developers who want to take quick notes, write documentation, or draft README files.
+Quick markdown editor I made for taking notes. Wanted something simple that works offline and doesn't need an account.
 
 ## Features
 
-- **Live Preview** - See your markdown rendered in real-time as you type
-- **Multiple Notes** - Create and manage multiple notes
-- **LocalStorage Persistence** - Your notes are saved automatically in your browser
-- **Export to Markdown** - Download your notes as `.md` files
-- **Word Counter** - Track your writing progress
-- **Clean Interface** - Distraction-free writing environment
-- **Split View** - Editor and preview side-by-side
-
-## Technologies Used
-
-- **HTML5** - Semantic structure
-- **CSS3** - Modern styling with CSS Grid
-- **Vanilla JavaScript (ES6+)** - No frameworks or dependencies
-- **LocalStorage API** - Client-side data persistence
-- **Blob API** - File export functionality
+- **Split-pane editor:** Live markdown preview alongside your editor
+- **Auto-save:** Notes are automatically saved to localStorage
+- **Export:** Download notes as `.md` files
+- **Mobile responsive:** Toggleable view for mobile devices
+- **Multiple notes:** Create and manage multiple notes with a sidebar
 
 ## Supported Markdown Syntax
 
-- Headers (`# H1`, `## H2`, `### H3`)
-- **Bold** (`**text**` or `__text__`)
-- *Italic* (`*text*` or `_text_`)
-- `Inline code` (`` `code` ``)
-- Code blocks (` ``` code ``` `)
-- [Links](`[text](url)`)
-- Images (`![alt](url)`)
-- > Blockquotes (`> quote`)
-- Lists (`-` or `*` for unordered, `1.` for ordered)
-- Horizontal rules (`---`)
+- Headers (h1-h6)
+- **Bold** and *italic* text
+- Links and images
+- Bulleted and numbered lists
+- Blockquotes
+- Inline `code` and code blocks
 
-## How to Use
+Custom markdown parser implementation (no external libraries).
 
-1. **Create a Note**: Click "New" and enter a title
-2. **Write**: Start typing markdown in the left panel
-3. **Preview**: See the rendered output in the right panel
-4. **Save**: Click "Save" to persist your note (auto-saved to localStorage)
-5. **Export**: Download your note as a `.md` file
-6. **Switch Notes**: Use the dropdown to load different notes
+## Mobile quirks
 
-## Running Locally
+Had to make the font-size 16px on inputs to prevent iOS from zooming in. That was annoying to figure out. Also added a toggle to switch between editor/preview since split view doesn't work well on phones.
 
-Simply open `index.html` in any modern web browser. No build process or dependencies required!
+## Technologies Used
 
-## Code Highlights
+- **JavaScript:** Vanilla JS, no frameworks
+- **localStorage API:** Client-side note persistence
+- **Blob API:** File export functionality
+- **CSS Grid:** Responsive layout
 
-- Custom markdown parser implemented from scratch
-- Object-oriented design with `DevNotes` class
-- Real-time preview updates
-- File download using Blob API
-- Responsive design for mobile and desktop
+## Running the Application
 
-## Future Enhancements
+No build process required. Open `index.html` in any modern web browser.
 
-- Dark mode toggle
-- Syntax highlighting for code blocks
-- Cloud sync option
-- Folder/tag organization
-- Search functionality
-- Keyboard shortcuts
+## Things to maybe add later
 
-## Browser Support
+- Syntax highlighting for code blocks would be nice
+- Dark mode (already have it on the main site)
+- Some keyboard shortcuts
+- Maybe tags or folders if I use this enough to need organization
 
-Works in all modern browsers (Chrome, Firefox, Safari, Edge)
-
-## Live Demo
-
-[Try DevNotes](#) <!-- Update with your deployed URL -->
+Honestly works fine as-is for what I needed though.

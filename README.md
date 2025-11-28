@@ -1,142 +1,62 @@
-# Portfolio Website
+# My Portfolio
 
-A modern, responsive portfolio website built with SvelteKit and TypeScript.
+Personal portfolio site I built to showcase my projects. Went with SvelteKit since I wanted to learn it, and it's been pretty nice to work with.
 
-## Features
+## What's in here
 
-- 🎨 Dark/Light mode toggle with localStorage persistence
-- 📱 Fully responsive design
-- ⚡ Fast and lightweight
-- 🎯 SEO optimized
-- 🚀 Static site generation for GitHub Pages
+- Dark/light mode (saves your preference)
+- Works on mobile - tested on my phone
+- Three projects I'm proud of
+- Pretty fast, tried to keep it simple
 
-## Tech Stack
+## Stack
 
-- **Framework**: SvelteKit 2.0
-- **Language**: TypeScript
-- **Styling**: CSS with CSS Variables
-- **Deployment**: GitHub Pages
+Built with SvelteKit and TypeScript. CSS is mostly custom with some variables for theming. Deployed on GitHub Pages since it's free and easy.
 
-## Getting Started
+## Running it locally
 
-### Prerequisites
-
-- Node.js 18+ and npm
-
-### Installation
+Requirements: Node.js 18 or newer
 
 ```bash
 npm install
-```
-
-### Development
-
-```bash
 npm run dev
 ```
 
-Visit `http://localhost:5173` to see your site.
+Open your browser to `http://localhost:5173`
 
-### Building for Production
-
+To build for production:
 ```bash
 npm run build
 ```
 
-The static files will be generated in the `build` directory.
+The production build will be output to the `build/` directory.
 
-## Deploying to GitHub Pages
+## Deployment
 
-### Option 1: GitHub Actions (Recommended)
+1. Push your repository to GitHub
+2. In repository settings, enable GitHub Pages
+3. Set the source to "GitHub Actions"
+4. The deployment workflow is already configured in `.github/workflows/deploy.yml`
 
-1. Create a new repository on GitHub
-2. Push your code to the repository:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin https://github.com/yourusername/your-repo.git
-   git push -u origin main
-   ```
-3. Create `.github/workflows/deploy.yml` with the GitHub Actions workflow (included in this project)
-4. Go to your repository Settings > Pages
-5. Set Source to "GitHub Actions"
-6. Your site will be deployed to `https://yourusername.github.io/your-repo/`
-
-### Option 2: Manual Deployment
-
-1. Build the project:
-   ```bash
-   npm run build
-   ```
-2. Deploy the `build` directory to GitHub Pages using `gh-pages`:
-   ```bash
-   npm install -g gh-pages
-   gh-pages -d build
-   ```
+Your site will be available at `https://yourusername.github.io/repo-name/`
 
 ## Customization
 
-### Update Personal Information
+To customize this portfolio for your own use:
 
-Edit the following files to customize with your information:
+- **Personal information:** Update `src/lib/About.svelte`
+- **Social links:** Update `src/lib/Header.svelte`
+- **Projects:** Update `src/lib/Projects.svelte`
+- **Colors/theme:** Modify CSS variables in `src/app.css`
+- **Resume:** Add your resume as `static/resume.pdf`
 
-- `src/lib/About.svelte` - Update your name, description, and contact info
-- `src/lib/Header.svelte` - Update GitHub and LinkedIn URLs
-- `src/lib/Projects.svelte` - Add your projects
-- `src/lib/Footer.svelte` - Update footer text
+## Notes
 
-### Add Projects
+Struggled a bit with getting the mobile touch events working right at first - turned out I needed to prevent default on touchstart. Left some notes in the game code about that.
 
-Edit `src/lib/Projects.svelte` and update the `projects` array:
+The theme switcher was easier than I thought it would be. Just localStorage and a data attribute on the HTML element.
 
-```typescript
-const projects = [
-  {
-    title: 'Your Project',
-    description: 'Project description',
-    tags: ['React', 'TypeScript'],
-    github: 'https://github.com/yourusername/project',
-    demo: 'https://your-demo.com', // Optional
-    isPlaceholder: false
-  }
-];
-```
-
-### Add Resume
-
-Place your resume PDF in the `static` directory as `resume.pdf`.
-
-### Color Theme
-
-Customize colors in `src/app.css` by editing the CSS custom properties in `:root` and `[data-theme='dark']`.
-
-## Project Structure
-
-```
-portfolio/
-├── src/
-│   ├── lib/              # Reusable components
-│   │   ├── Header.svelte
-│   │   ├── About.svelte
-│   │   ├── Skills.svelte
-│   │   ├── Projects.svelte
-│   │   └── Footer.svelte
-│   ├── routes/           # Pages
-│   │   ├── +layout.svelte
-│   │   ├── +layout.ts
-│   │   └── +page.svelte
-│   ├── app.css           # Global styles
-│   └── app.html          # HTML template
-├── static/               # Static assets
-│   └── .nojekyll         # GitHub Pages config
-├── package.json
-├── svelte.config.js
-├── tsconfig.json
-└── vite.config.ts
-```
-
-## License
-
-MIT
+## TODO
+- Maybe add a blog section later
+- Could use some animations on scroll
+- Want to add more projects as I build them
