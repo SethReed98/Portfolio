@@ -1,6 +1,30 @@
 <script lang="ts">
 	const projects = [
 		{
+			title: 'DevPulse',
+			description: 'Full-stack dashboard that aggregates developer activity from GitHub, Stack Overflow, and WakaTime. Real-time updates via WebSockets, smart caching with Redis to avoid API rate limits, and PostgreSQL for historical trend analysis. OAuth integration handles token refresh automatically.',
+			tags: ['Node.js', 'PostgreSQL', 'Redis', 'Socket.IO', 'React', 'OAuth'],
+			github: 'https://github.com/SethReed98/Portfolio/tree/main/projects/devpulse',
+			demo: null,
+			isPlaceholder: false
+		},
+		{
+			title: 'SnapAPI',
+			description: 'API testing tool that renders visual responses - images display as images, PDFs open in viewer, JSON gets syntax highlighting. Built proxy server to handle CORS, WebSocket testing with live message history, and response diffing to debug API changes. Monaco editor for request bodies.',
+			tags: ['Python', 'Flask', 'MongoDB', 'React', 'TypeScript', 'WebSockets'],
+			github: 'https://github.com/SethReed98/Portfolio/tree/main/projects/snapapi',
+			demo: null,
+			isPlaceholder: false
+		},
+		{
+			title: 'SoundCircle',
+			description: 'Real-time collaborative playlist builder with Spotify integration. Create rooms, invite friends, everyone adds songs and votes on what plays next. Socket.IO handles real-time queue updates, PostgreSQL manages voting logic, and implemented playback synchronization across all connected users.',
+			tags: ['Node.js', 'PostgreSQL', 'Socket.IO', 'Vue.js', 'Spotify API'],
+			github: 'https://github.com/SethReed98/Portfolio/tree/main/projects/soundcircle',
+			demo: null,
+			isPlaceholder: false
+		},
+		{
 			title: 'Color Memory Game',
 			description: 'Simon Says style memory game. Got touch events and haptic feedback working for mobile - took some trial and error with preventDefault. Uses Web Audio API for the beep sounds and tracks your high score.',
 			tags: ['JavaScript', 'Mobile-First', 'Web Audio API', 'Touch Events'],
